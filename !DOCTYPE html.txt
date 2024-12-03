@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobster Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Sky blue */
+        }
+
+        #lobster {
+            width: 150px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #shrimp {
+            width: 50px;
+            position: absolute;
+            display: none;
+        }
+
+        #score {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lobster Clicker Game</h1>
+    <p>Score: <span id="score">0</span></p>
+    <img id="lobster" src="https://www.google.com/imgres?q=lobster&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F0%2F0b%2FKreeftbijDenOsse.jpg&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FLobster&docid=zT_AowRFGFgQgM&tbnid=eUQwrbINfLaGUM&vet=12ahUKEwiBidmM44yKAxW9OzQIHeHPAVcQM3oECBUQAA..i&w=2592&h=1944&hcb=2&ved=2ahUKEwiBidmM44yKAxW9OzQIHeHPAVcQM3oECBUQAA" alt="Lobster">
+    <img id="shrimp" src="https://www.google.com/imgres?q=shrimp&imgurl=https%3A%2F%2Fwww.fisheries.noaa.gov%2Fs3%2F%2Fstyles%2Foriginal%2Fs3%2F2022-09%2F640x427-Shrimp-Pink-NOAAFisheries.png%3Fitok%3DS6oABRxb&imgrefurl=https%3A%2F%2Fwww.fisheries.noaa.gov%2Fspecies%2Fpink-shrimp&docid=7XLzrDJQnNuxVM&tbnid=P_LjvuBBS_t29M&vet=12ahUKEwjo-4aa44yKAxUzHzQIHcTPHWAQM3oECGAQAA..i&w=800&h=534&hcb=2&ved=2ahUKEwjo-4aa44yKAxUzHzQIHcTPHWAQM3oECGAQAA" alt="Shrimp">
+
+    <script>
+        let score = 0;
+
+        const lobster = document.getElementById('lobster');
+        const shrimp = document.getElementById('shrimp');
+        const scoreDisplay = document.getElementById('score');
+
+        lobster.addEventListener('click', () => {
+            // Increment score
+            score++;
+            scoreDisplay.textContent = score;
+
+            // Show shrimp animation
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            shrimp.style.display = 'block';
+            shrimp.style.top = `${Math.random() * screenHeight}px`;
+            shrimp.style.left = `${Math.random() * screenWidth}px`;
+
+            // Hide shrimp after animation
+            setTimeout(() => {
+                shrimp.style.display = 'none';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+
